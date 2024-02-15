@@ -85,7 +85,7 @@ export const tieneNombreUsuario = (
   const claveAMinusculas = clave.toLowerCase();
   const nombreUsuarioAMinuscula = nombreUsuario.toLowerCase();
 
-  const esValida = claveAMinusculas.includes(nombreUsuarioAMinuscula);
+  const esValida = !claveAMinusculas.includes(nombreUsuarioAMinuscula);
   return {
     esValida,
     error: esValida

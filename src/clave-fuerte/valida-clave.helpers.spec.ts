@@ -1,5 +1,5 @@
 import { commonPasswords } from "./common-passwords";
-import { ValidacionClave, caracteresEspeciales } from "./model";
+import { caracteresEspeciales } from "./model";
 import {
   tieneCaracteresEspeciales,
   tieneLongitudMinima,
@@ -84,7 +84,7 @@ describe("tieneMayusculasYMinusculas", () => {
     ],
   ])(
     "La clave %s debe retornar %s",
-    (clave, resultadoEsperado: ValidacionClave) => {
+    (clave, resultadoEsperado) => {
       //Act
       const resultado = tieneMayusculasYMinusculas(clave);
       //Assert
@@ -473,120 +473,120 @@ describe("tieneNombreUsuario", () => {
       "usuario1",
       "usuario12345",
       {
-        esValida: true,
-        error: undefined,
+        esValida: false,
+        error: "La clave no debe tener el nombre del usuario",
       },
     ],
     [
       "usuario2",
       "clave2",
       {
-        esValida: false,
-        error: "La clave no debe tener el nombre del usuario",
+        esValida: true,
+        
       },
     ],
     [
       "usuario3",
       "clave3usuario3",
       {
-        esValida: true,
-        error: undefined,
+        esValida: false,
+        error: "La clave no debe tener el nombre del usuario",
       },
     ],
     [
       "usuario4",
       "clave4",
       {
-        esValida: false,
-        error: "La clave no debe tener el nombre del usuario",
+        esValida: true,
+        
       },
     ],
     [
       "usuario5",
       "usuario5clave",
       {
-        esValida: true,
-        error: undefined,
+        esValida: false,
+        error: "La clave no debe tener el nombre del usuario",
       },
     ],
     [
       "usuario6",
       "password6",
       {
-        esValida: false,
-        error: "La clave no debe tener el nombre del usuario",
+        esValida: true,
+        
       },
     ],
     [
       "usuario7",
       "ABusuario7YZ",
       {
-        esValida: true,
-        error: undefined,
+        esValida: false,
+        error: "La clave no debe tener el nombre del usuario",
       },
     ],
     [
       "usuario8",
       "clave8",
       {
-        esValida: false,
-        error: "La clave no debe tener el nombre del usuario",
+        esValida: true,
+       
       },
     ],
     [
       "usuario9",
       "password9",
       {
-        esValida: false,
-        error: "La clave no debe tener el nombre del usuario",
+        esValida: true,
+
       },
     ],
     [
       "usuario10",
       "usuario10clave10",
       {
-        esValida: true,
-        error: undefined,
+        esValida: false,
+        error: "La clave no debe tener el nombre del usuario",
       },
     ],
     [
       "usuario11",
       "password11",
       {
-        esValida: false,
-        error: "La clave no debe tener el nombre del usuario",
+        esValida: true,
+        
       },
     ],
     [
       "usuario12",
       "clave12",
       {
-        esValida: false,
-        error: "La clave no debe tener el nombre del usuario",
+        esValida: true,
+        
       },
     ],
     [
       "usuario13",
       "clave13",
       {
-        esValida: false,
-        error: "La clave no debe tener el nombre del usuario",
+        esValida: true,
+        
       },
     ],
     [
       "usuario14",
       "usuario14",
       {
-        esValida: true,
-        error: undefined,
+        esValida: false,
+        error: "La clave no debe tener el nombre del usuario",
       },
     ],
     [
       "usuario15",
       "usuario15clave",
       {
-        esValida: true,
-        error: undefined,
+        esValida: false,
+        error: "La clave no debe tener el nombre del usuario",
       },
     ],
   ])(
