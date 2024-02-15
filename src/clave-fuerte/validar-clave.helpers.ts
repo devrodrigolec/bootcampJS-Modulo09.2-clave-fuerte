@@ -1,4 +1,5 @@
-import { ValidacionClave, } from "./model";
+import { ValidacionClave } from "./model";
+
 
 export const tieneMayusculasYMinusculas = (clave: string): ValidacionClave => {
   if (!clave) {
@@ -46,13 +47,9 @@ export const tieneCaracteresEspeciales = (
     throw new Error("Los parámetros introducidos son incorrectos");
   }
 
-  let esValida = false;
-
-  caracteresEspeciales.forEach((caracterEspecial) => {
-    if (clave.includes(caracterEspecial)) {
-      esValida = true;
-    }
-  });
+  let esValida = caracteresEspeciales.some((caracter) =>
+    clave.includes(caracter)
+  );
 
   return {
     esValida,
@@ -67,11 +64,13 @@ export const tieneLongitudMinima = (clave: string): ValidacionClave => {
     throw new Error("Los parámetros introducidos son incorrectos");
   }
 
-  const esValida = clave.length > 7
+  const esValida = clave.length > 7;
 
   return {
     esValida,
-    error: esValida ? undefined : "La clave debe de tener una longitud mínima de 8 caracteres"
+    error: esValida
+      ? undefined
+      : "La clave debe de tener una longitud mínima de 8 caracteres",
   };
 };
 
@@ -98,23 +97,17 @@ export const tieneNombreUsuario = (
 export const tienePalabrasComunes = (
   clave: string,
   commonPasswords: string[]
-) : ValidacionClave => {
-
-  if(!clave ||!commonPasswords) {
-    throw new Error('Los parámetros introducidos son incorrectos');
+): ValidacionClave => {
+  if (!clave || !commonPasswords) {
+    throw new Error("Los parámetros introducidos son incorrectos");
   }
 
-  let esValida = false;
-  commonPasswords.forEach((commonPassword) => {
-    if(clave.includes(commonPassword)){
-      esValida = true;
-      return;
-    }
-  });
-
+  let esValida = !commonPasswords.some((password) => clave.includes(password));
 
   return {
     esValida,
-    error: esValida ? undefined : "La clave no debe de contener palabras comunes"  
-  }
+    error: esValida
+      ? undefined
+      : "La clave no debe de contener palabras comunes",
+  };
 };

@@ -601,72 +601,111 @@ describe("tieneNombreUsuario", () => {
 });
 
 it.each([
-  ["asqsunshine14", { esValida: true, error: undefined }],
-  ["abc123bn124", { esValida: true, error: undefined }],
-  ["hello123ac!@", { esValida: true, error: undefined }],
-  ["ac21234567Ghx!", { esValida: true, error: undefined }],
-  ["letmein152", { esValida: true, error: undefined }],
-  ["footballMessi10", { esValida: true, error: undefined }],
-  ["21qwertynumber10", { esValida: true, error: undefined }],
   [
-    "Pa$$w0rd!",
+    "asqsunshine14",
     {
       esValida: false,
       error: "La clave no debe de contener palabras comunes",
     },
   ],
   [
-    "9&Jp2@q#",
+    "abc123bn124",
     {
       esValida: false,
       error: "La clave no debe de contener palabras comunes",
+    },
+  ],
+  [
+    "hello123ac!@",
+    {
+      esValida: false,
+      error: "La clave no debe de contener palabras comunes",
+    },
+  ],
+  [
+    "ac21234567Ghx!",
+    {
+      esValida: false,
+      error: "La clave no debe de contener palabras comunes",
+    },
+  ],
+  [
+    "letmein152",
+    {
+      esValida: false,
+      error: "La clave no debe de contener palabras comunes",
+    },
+  ],
+  [
+    "footballMessi10",
+    {
+      esValida: false,
+      error: "La clave no debe de contener palabras comunes",
+    },
+  ],
+  [
+    "21qwertynumber10",
+    {
+      esValida: false,
+      error: "La clave no debe de contener palabras comunes",
+    },
+  ],
+  ["Pa$$w0rd!",{
+    esValida: true,
+    error: undefined,
+  } ,],
+  [
+    "9&Jp2@q#",
+    {
+      esValida: true,
+      error: undefined,
     },
   ],
   [
     "BlueSky$777",
     {
-      esValida: false,
-      error: "La clave no debe de contener palabras comunes",
+      esValida: true,
+      error: undefined,
     },
   ],
   [
     "$un5h1n3%",
     {
-      esValida: false,
-      error: "La clave no debe de contener palabras comunes",
+      esValida: true,
+      error: undefined,
     },
   ],
   [
     "P@ssC0d3!",
     {
-      esValida: false,
-      error: "La clave no debe de contener palabras comunes",
+      esValida: true,
+      error: undefined,
     },
   ],
   [
     "8F!r3@w@ll",
     {
-      esValida: false,
-      error: "La clave no debe de contener palabras comunes",
+      esValida: true,
+      error: undefined,
     },
   ],
   [
     "$3cUr3P@55",
     {
-      esValida: false,
-      error: "La clave no debe de contener palabras comunes",
+      esValida: true,
+      error: undefined,
     },
   ],
   [
     "D@rkH0r$3$",
     {
-      esValida: false,
-      error: "La clave no debe de contener palabras comunes",
+      esValida: true,
+      error: undefined,
     },
   ],
-]) ('La clave %s debe retornar %s', (clave, resultadoEsperado) => {
+])("La clave %s debe retornar %s", (clave, resultadoEsperado) => {
   //Act
   const resultado = tienePalabrasComunes(clave, commonPasswords);
   //Assert
-  expect(resultado).toEqual(resultadoEsperado)
+  expect(resultado).toEqual(resultadoEsperado);
 });
